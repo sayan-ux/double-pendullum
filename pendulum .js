@@ -1,29 +1,30 @@
-let g = 1;
+let g = 3;
 let pi = 3.1421;
 let ar = 0;
 //data of forst pendulum
-let r1 = 150;
+let r1 = 350;
 let a1 = pi / 2;
-let m1 = 40;
+let m1 = 100;
 let x1 = 0, y1 = 0;
 let a1v = 0, a1a = 0;
 //data of second pendulum
-let r2 = 150;
-let a2 = pi / 2;
-let m2 = 40;
+let r2 = 550;
+let a2 = 0;
+let m2 = 30;
 let x2 = 0, y2 = 0;
-let a2v = 0.09, a2a = 0.09;
+let a2v = 0., a2a = 0;
 
 let history
 function setup() {
-    createCanvas(600, 600);
+    createCanvas(1600, 1600);
 
 }
 
 
 function draw() {
     background(150);
-    translate(300, 100);
+    translate(800, 300);
+    square (-2.5,-2.5,5);
 
 
 
@@ -50,17 +51,17 @@ function draw() {
     a2v += a2a;
     a1 += a1v;
     a2 += a2v;
-    ar = random(0.00003, 0.00005);
+    ar = random(0.00001, 0.00005);
     if (a1v > 0) {
         a1v -= ar;
     }
-    else {
+    else if(a1v<0){
         a1v += ar;
     }
     if (a2v > 0) {
         a2v -= ar;
     }
-    else {
+    else if(a2v<0){
         a2v += ar;
     }
 
